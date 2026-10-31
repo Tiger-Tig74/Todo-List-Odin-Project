@@ -1,0 +1,284 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: #f4f5f7;
+    color: #1f2937;
+    height: 100vh;
+}
+
+#app {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    height: 100vh;
+}
+
+/* Sidebar */
+#sidebar {
+    background: #1e293b;
+    color: #e2e8f0;
+    padding: 1.25rem;
+    overflow-y: auto;
+}
+
+#sidebar h1 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.btn {
+    background: #334155;
+    color: #e2e8f0;
+    border: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-family: inherit;
+}
+
+.btn:hover {
+    background: #475569;
+}
+
+.btn.primary {
+    background: #3b82f6;
+    color: #fff;
+}
+
+.btn.primary:hover {
+    background: #2563eb;
+}
+
+.btn.danger {
+    background: #dc2626;
+    color: #fff;
+}
+
+#new-project-btn {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+#project-list {
+    list-style: none;
+}
+
+.project-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.6rem;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+}
+
+.project-item:hover {
+    background: #334155;
+}
+
+.project-item.active {
+    background: #3b82f6;
+    color: #fff;
+}
+
+.project-item span:first-child {
+    flex: 1;
+}
+
+.count {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    padding: 0 0.5rem;
+    font-size: 0.75rem;
+}
+
+.del-btn {
+    background: transparent;
+    color: inherit;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.del-btn:hover {
+    opacity: 1;
+    color: #f87171;
+}
+
+/* Main */
+#main {
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+#main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+#main-header h2 {
+    font-size: 1.5rem;
+}
+
+/* Todo list */
+.todo-row {
+    background: #fff;
+    border-radius: 8px;
+    padding: 0.9rem 1rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-left: 4px solid #cbd5e1;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.todo-row.priority-high {
+    border-left-color: #dc2626;
+}
+
+.todo-row.priority-medium {
+    border-left-color: #f59e0b;
+}
+
+.todo-row.priority-low {
+    border-left-color: #10b981;
+}
+
+.todo-row.completed {
+    opacity: 0.55;
+}
+
+.todo-row.overdue {
+    background: #fef2f2;
+}
+
+.todo-row input[type="checkbox"] {
+    width: 1.1rem;
+    height: 1.1rem;
+    cursor: pointer;
+}
+
+.todo-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.todo-title {
+    font-weight: 500;
+}
+
+.todo-row.completed .todo-title {
+    text-decoration: line-through;
+}
+
+.todo-meta {
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+.expand-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #6b7280;
+    padding: 0 0.5rem;
+}
+
+.empty-msg {
+    color: #6b7280;
+    font-style: italic;
+}
+
+/* Detail panel */
+#todo-detail {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+#todo-detail.hidden {
+    display: none;
+}
+
+#todo-detail h3 {
+    margin-bottom: 1rem;
+}
+
+.close-btn {
+    float: right;
+    background: #e5e7eb;
+    border: none;
+    padding: 0.4rem 0.7rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Forms */
+.todo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.todo-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.85rem;
+    color: #4b5563;
+}
+
+.todo-form input,
+.todo-form select,
+.todo-form textarea {
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.form-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.modal {
+    background: #fff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    width: min(480px, 90vw);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal h3 {
+    margin-bottom: 1rem;
+}

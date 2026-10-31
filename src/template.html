@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Todo-lite</title>
+    </head>
+    <body>
+        <div id="app">
+            <aside id="sidebar">
+                <h1>Todos</h1>
+                <button id="new-project-btn" class="btn">+ New Project</button>
+                <ul id="project-list"></ul>
+            </aside>
+            <main id="main">
+                <header id="main-header">
+                    <h2 id="current-project-name"></h2>
+                    <button id="new-todo-btn" class="btn primary">
+                        + New Todo
+                    </button>
+                </header>
+                <div id="todo-list"></div>
+                <div id="todo-detail" class="hidden"></div>
+                <div id="modal-root"></div>
+            </main>
+        </div>
+    </body>
+</html>
